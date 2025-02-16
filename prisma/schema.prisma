@@ -1,0 +1,115 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String      @id @default(cuid())
+  name         String
+  bio          String?
+  points       Int         @default(0) // Increase the points +2 when recruiters mark contribution COMPLETED and +4 when they SHORTLISTED
+  upiId        String?
+  password     String?
+
+  github       String?
+  linkedin     String?
+  website      String?
+
+  region       String?
+  
+  role         Role
+  projects     Project[]    // Recruiter: Projects they posted
+  submissions  Submission[] // Candidate: Submited projects
+  pinnedProjects Project[]  @relation("PinnedProjects") // Pinned projects for the user
+  pinnedCandidates User[]   @relation("PinnedCandidates") // Recruiter: Pin the candidates
+  pinnedBy         User[]   @relation("PinnedCandidates") // Candidate: Pinned by the recruiter
+
+  email        String       @unique
+  emailVerified DateTime?
+
+  oauthProvider OauthProvider?
+  oauthId      String?      @unique
+
+  createdAt    DateTime     @default(now())
+}
+
+model Project {
+  id            String    @id @default(cuid())
+  title         String
+  description   String
+  codeLink      String?
+  deadline      DateTime?
+  bounty        Float?
+  recruiterId   String
+
+  status        ProjectStatus @default(ONGOING)
+  difficulty    Difficulty    @default(INTERMEDIATE)
+  recruiter     User          @relation(fields: [recruiterId], references: [id]) // Recruiter who posted the project
+  technologies  Technology[]  @relation("ProjectTechnologies") // Many-to-many relationship
+  pinnedByUsers User[]        @relation("PinnedProjects") // Users who have pinned this project
+  submissions   Submission[]  // Submissions by candidates
+
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model Submission {
+  id          String    @id @default(cuid())
+  projectId   String
+  candidateId String
+  link        String // Link to the submission (GitHub PR or similar)
+  title       String
+  description String?
+
+  remark      String?
+  star        Int       @default(0)
+  bounty      Float?
+  paidAt      DateTime?
+
+  project     Project   @relation(fields: [projectId], references: [id])
+  candidate   User      @relation(fields: [candidateId], references: [id])
+  status      SubmissionStatus @default(PENDING) // Status: PENDING, SHORTLISTED, REJECTED, COMPLETED
+
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime  @updatedAt  @default(now())
+}
+
+model Technology {
+  id       String     @id @default(cuid())
+  name     String     @unique // Technology name (e.g., React, Node.js)
+  projects Project[]  @relation("ProjectTechnologies")
+}
+
+enum OauthProvider {
+  GOOGLE
+  GITHUB
+}
+
+enum Role {
+  CANDIDATE
+  RECRUITER
+  ADMIN
+  UNASSIGNED
+}
+
+enum SubmissionStatus {
+  PENDING
+  SHORTLISTED //when successfully completed the project and also shortlisted for the job
+  REJECTED
+  COMPLETED //when successfully completed the project
+}
+
+enum Difficulty {
+  EASY
+  INTERMEDIATE
+  HARD
+}
+
+enum ProjectStatus {
+  ONGOING
+  CLOSED
+}
