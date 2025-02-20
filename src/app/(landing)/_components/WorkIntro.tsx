@@ -33,7 +33,7 @@ export default function WorkIntro() {
                 </div>
                 <div className="hidden md:flex relative flex-1 min-h-[300px] md:min-h-full">
                     <Image
-                        src="/workIntro.jpg"
+                        src="/images/workIntro.jpg"
                         alt="Work Intro"
                         fill
                         style={{ objectFit: 'cover' }}

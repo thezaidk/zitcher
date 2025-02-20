@@ -35,7 +35,7 @@ export default function HireIntro() {
                 </div>
                 <div className="hidden md:flex relative flex-1 min-h-[300px] md:min-h-full">
                     <Image
-                        src="/hireIntro.jpg"
+                        src="/images/hireIntro.jpg"
                         alt="Hire Intro"
                         fill
                         style={{ objectFit: 'cover' }}

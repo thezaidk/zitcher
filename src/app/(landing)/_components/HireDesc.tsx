@@ -13,7 +13,7 @@ export default function HireDesc() {
             <div className="w-full max-w-[70rem] flex justify-between mx-2 md:mx-0">
                 <div className="hidden md:block">
                     <Image
-                        src="/hireDesc.jpg"
+                        src="/images/hireDesc.jpg"
                         alt="Hire Intro"
                         className="rounded-lg shadow-xl"
                         height={1000}

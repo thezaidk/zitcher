@@ -32,7 +32,7 @@ export default function Features() {
             <div className="flex justify-between">
                 <div className="hidden md:block">
                     <Image
-                        src="/features-img.png"
+                        src="/images/features-img.png"
                         alt="features"
                         width={500}
                         height={500}

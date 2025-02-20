@@ -20,7 +20,7 @@ export default function About() {
 
           <div className="flex items-center mt-8">
             <Image
-              src="/founder.jpg"
+              src="/images/founder.jpg"
               alt="Founder Zaid Karigar"
               width={90}
               height={90}

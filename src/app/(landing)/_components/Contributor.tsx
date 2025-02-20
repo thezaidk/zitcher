@@ -12,7 +12,7 @@ export default function Contributor() {
             <div className="flex w-full max-w-[70rem] mx-auto mt-[10rem] bg-orange-900 text-white rounded-lg">
                 <div className="hidden md:flex relative flex-1 min-h-[300px] md:min-h-full">
                     <Image 
-                        src="/client.png"
+                        src="/images/client.png"
                         alt="client"
                         fill
                         style={{ objectFit: 'cover' }}

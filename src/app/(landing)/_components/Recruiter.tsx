@@ -41,7 +41,7 @@ export default function Recruiter() {
                 </div>
                 <div className="hidden md:flex relative flex-1 min-h-[300px] md:min-h-full">
                     <Image 
-                        src="/enterprise.png"
+                        src="/images/enterprise.png"
                         alt="enterprise"
                         fill
                         style={{ objectFit: 'cover' }}
