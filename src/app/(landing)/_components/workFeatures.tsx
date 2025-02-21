@@ -42,8 +42,8 @@ const workFeaturesData = [
 
 export default function WorkFeatures() {
     return (
-        <section className="w-full flex justify-center">
-            <div className="w-full max-w-[70rem] px-5 xl:px-0">
+        <section className="w-full flex justify-center mb-10">
+            <div className="w-full max-w-[70rem] px-2">
                 <h1 className="text-3xl sm:text-4xl font-bold">What You&apos;ll Get</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
                     {workFeaturesData.map((feature, index) => (
@@ -67,7 +67,7 @@ const Item = ({ icon: Icon, title, desc } : {
 }) => {
     return (
         <div className="flex">
-            <div className="pr-2 sm:px-5">
+            <div className="pr-2 md:pr-5">
                 <Icon strokeWidth={1.5} />
             </div>
             <div>

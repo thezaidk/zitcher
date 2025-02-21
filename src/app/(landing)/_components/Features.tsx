@@ -28,7 +28,7 @@ export default function Features() {
     const router = useRouter();
 
     return (
-        <section className="max-w-[70rem] mx-5">
+        <section className="max-w-[70rem] mx-2 md:mx-5">
             <div className="flex justify-between">
                 <div className="hidden md:block">
                     <Image

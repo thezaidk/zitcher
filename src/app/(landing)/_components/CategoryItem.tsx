@@ -23,7 +23,7 @@ export default function CategoryItem({ Icon, title, desc }: {
                 scale: scaleProgress,
                 opacity: opacityProgress,
             }}
-            className="bg-secondary sm:h-52 px-5 py-8 m-2 rounded-lg w-62 shadow overflow-hidden"
+            className="bg-secondary sm:h-52 px-5 py-8 rounded-lg w-62 shadow overflow-hidden"
         >
             <Icon strokeWidth={2} color="#9a8dfe" />
             <h2 className="font-bold text-lg mt-1">{title}</h2>

@@ -48,7 +48,7 @@ const categoryData = [
 
 export default function Category() {
     return (
-        <section className="max-w-[70rem] mt-[15rem] mx-5">
+        <section className="max-w-[70rem] mt-[15rem] mx-2 md:mx-5">
             <div>
                 <div className="space-y-2">
                     <h1 className="text-4xl font-bold">Browse Projects by Category</h1>
