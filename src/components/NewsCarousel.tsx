@@ -52,7 +52,7 @@ return (
                     </div>
                     <div className='hidden lg:flex lg:justify-center lg:col-span-2'>
                         <Image
-                          src={"/news-img.png"}
+                          src={"/images/news-img.png"}
                           width={200}
                           height={200}
                           alt="News Img"

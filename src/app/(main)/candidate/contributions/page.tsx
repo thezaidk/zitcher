@@ -47,7 +47,7 @@ export default async function Contributions() {
                     <div className="flex flex-col items-start gap-5 px-5 py-8 rounded-lg bg-secondary md:items-center md:px-0 md:py-16">
                     <h3 className="text-lg md:text-2xl">You don&apos;t have any contributions yet.</h3>
                     <p className="text-sm">Your pending, active, completed and shortlisted contributions will be available here when you start working on projects.</p>
-                    <Button>Search for new projects</Button>
+                    <Link href={"/candidate/find-project"}><Button>Search for new projects</Button></Link>
                 </div>
                 ) : (
                     <div>
