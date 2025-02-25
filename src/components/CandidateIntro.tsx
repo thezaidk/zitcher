@@ -64,7 +64,7 @@ export default function CandidateIntro({ id, name, location, joinedAt, emailVeri
                             <>
                             <div className="flex items-center gap-1">
                                 <MapPin className="hidden md:block" size={18} />
-                                <p className="text-xs md:text-sm">Pune, India</p>
+                                <p className="text-xs md:text-sm">{location}</p>
                             </div>
                             <p className="text-xs md:text-sm">-</p>
                             </>
@@ -74,7 +74,7 @@ export default function CandidateIntro({ id, name, location, joinedAt, emailVeri
                     {github && (
                         <div className="flex items-center gap-2">
                             <Github className="hidden md:block" size={18} />
-                            <p className="text-xs md:text-sm">GitHub: <Link href={github} className="hover:underline">github.com/the_zaid_k</Link></p>
+                            <p className="text-xs md:text-sm">GitHub: <Link href={github} className="hover:underline">{github}</Link></p>
                         </div>
                     )}
                 </div>
