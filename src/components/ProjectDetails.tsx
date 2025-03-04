@@ -122,7 +122,7 @@ export default function ProjectDetails({ project } : { project: ProjectProps}) {
                         <p className="text-sm">Contributions: <span className="font-bold">{project._count.submissions}</span></p>
                     </div>
                 </div>
-                <aside className="space-y-10 px-3 pt-8 lg:px-10 xl:min-w-[20rem]">
+                <aside className="space-y-10 px-3 pt-8 xl:px-10 md:w-[15rem] xl:w-[20rem]">
                     <div className="relative flex flex-col items-center gap-3">
                         {project.codeLink && (
                             <Button
