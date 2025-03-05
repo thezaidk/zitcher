@@ -84,7 +84,7 @@ export default function ProjectDetails({ project } : { project: ProjectProps}) {
                                 <p className="text-xs">Pinned by users</p>
                             </div>
                         </div>
-                        {project.bounty && (
+                        {project.bounty !== null && project.bounty !== undefined && (project.bounty > 0) && (
                             <div className="flex gap-2">
                                 <BadgeIndianRupee className="hidden mt-1 md:block" strokeWidth={2} size={"18"} />
                                 <div>
