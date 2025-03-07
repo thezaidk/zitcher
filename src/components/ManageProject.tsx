@@ -29,6 +29,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { useRouter } from "next/navigation";
 
 type ManageProjectProps = {
     id?: string,
@@ -55,6 +56,7 @@ export default function ManageProject({
     id, title, description, codeLink, deadline, bounty, difficulty, status, technologies, allTechnologies, createNew
 }: ManageProjectProps) {
     const { toast } = useToast();
+    const router = useRouter();
 
     const [selectedTech, setSelectedTech] = useState<Set<string>>(new Set(technologies?.map(t => t.id)));
 
@@ -77,9 +79,11 @@ export default function ManageProject({
         const formData = { ...data, technologies: techArray };
 
         if(createNew) {
-            const { success, message } = await createProject(formData);
-            if(success){
+            const { success, message, newProject } = await createProject(formData);
+
+            if(success && newProject){
                 toast({ description: message });
+                router.push(`/recruiter/project/${newProject.id}`);
             }else{
                 toast({ description: message, variant: "destructive" })
             }
@@ -108,7 +112,7 @@ export default function ManageProject({
         <div className="flex flex-col p-5 gap-10 border-b lg:flex-row">
             <div className="flex flex-col gap-5 w-full">
                 <div className="flex items-center gap-2 mb-3">
-                    <h1 className="text-2xl font-semibold">Manage Project</h1>
+                    <h1 className="text-2xl font-semibold">{createNew ? "Create Project" : "Manage Project"}</h1>
                     <SquareChartGantt />
                 </div>
                 <FormField
